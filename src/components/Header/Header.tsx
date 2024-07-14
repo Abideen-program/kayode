@@ -1,11 +1,11 @@
 import Image from "next/image";
-import { imagesIcons } from "@/utils/image";
+import { iconImages } from "@/utils/image";
 
 const Header = () => {
   return (
-    <div className="border border-red-500 py-4 px-[120px] flex items-center justify-between">
+    <div className="border border-red-500 py-4 px-[120px] flex items-center justify-between fixed w-full right-0 left-0">
       <div>
-        <Image src={imagesIcons.Logo} alt="Logo" className="w-44" />
+        <Image src={iconImages.Logo} alt="Logo" className="w-44" />
       </div>
       <div className="flex items-center gap-5 justify-between text-sm">
         <div className="flex items-center gap-2 border border-[#55DB62] px-4 py-2 rounded-[40px]">
@@ -16,7 +16,7 @@ const Header = () => {
         </div>
         <p>Designer based in Lagos, Nigeria</p>
       </div>
-      <Image src={imagesIcons.Hambuger} alt="Logo" className="cursor-pointer" />
+      <Image src={iconImages.Hambuger} alt="Logo" className="cursor-pointer" />
     </div>
   );
 };
