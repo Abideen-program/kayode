@@ -1,9 +1,35 @@
+"use client";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { iconImages } from "@/utils/image";
 
 const Header = () => {
+  const TOP_OFFSET = 60;
+
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= TOP_OFFSET) {
+        setShowBackground(true);
+      } else {
+        setShowBackground(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="border border-red-500 py-4 px-[120px] flex items-center justify-between fixed w-full right-0 left-0">
+    <div
+      className={`py-4 px-[120px] flex items-center justify-between fixed w-full right-0 left-0 top-0 z-[1000] ${
+        showBackground ? "bg-zinc-900 bg-opacity-90" : ""
+      }`}
+    >
       <div>
         <Image src={iconImages.Logo} alt="Logo" className="w-44" />
       </div>
